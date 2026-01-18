@@ -9,11 +9,32 @@ InvigilAI is an AI-powered online examination monitoring system designed to ensu
 - Clean and responsive UI
 - Scalable frontend architecture
 
+---
+## 🖼️ Screenshots
+### Identity Registration
+![Identity Registration](public/shots/shot%201.png)
+
+This image shows the process of registering an identity for secure access during exams.
+
+### Detection in Action
+![Detection in Action](public/shots/shot%202.png)
+
+Here we see the real-time detection of suspicious activity during the exam. Our AI constantly monitors user behavior to ensure fair assessments.
+---
+
+
 ## 🛠 Tech Stack
 - React
 - Tailwind CSS
 - Auth0 (Authentication)
-- JavaScript
+- Python
+- YOLO
+- PANNs
+- MediaPipe
+- SKlearn
+- VGG2
+- Docker
+- FaceNet
 
 ## ⚙️ Setup & Run
 ```bash
