@@ -36,8 +36,8 @@ logs/
 # =========================
 # Model weights / ML artifacts (DO NOT COMMIT)
 # =========================
-vision_service/weights/
-audio_service/panns_data/
+# vision_service/weights/
+# audio_service/panns_data/
 identity_service/SERVER_Run/
 
 # =========================

@@ -38,7 +38,7 @@ function Home() {
               </Link>
               <Link to="/Identity" className="w-full sm:w-auto">
                 <button className="w-full px-8 py-4 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-500 transition-all active:scale-95">
-                  Update Identity
+                  Scan Face
                 </button>
               </Link>
             </>
