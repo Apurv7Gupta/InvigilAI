@@ -4,3 +4,4 @@ httpx
 python-multipart
 numpy==2.2.6
 dataclasses==0.6
+opencv-python-headless

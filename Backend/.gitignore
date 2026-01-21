@@ -34,10 +34,10 @@ logs/
 *.pid
 
 # =========================
-# Model weights / ML artifacts (DO NOT COMMIT)
+# Model weights / ML artifacts
 # =========================
 # vision_service/weights/
-# audio_service/panns_data/
+audio_service/panns_data/
 identity_service/SERVER_Run/
 
 # =========================

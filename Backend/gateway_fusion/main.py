@@ -2,7 +2,7 @@ import httpx
 import asyncio
 import cv2
 import numpy as np
-from fastapi import FastAPI, UploadFile, File
+from fastapi import FastAPI, UploadFile, File, Form
 from fastapi.middleware.cors import CORSMiddleware
 from fusion_module import TemporalBehaviorFusionModel, FusionFeatures
 import os  # env vars
@@ -13,7 +13,7 @@ fusion_model = TemporalBehaviorFusionModel()
 # Allow your frontend to communicate with the backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # In production, replace with your specific domain
+    allow_origins=["*"], # replace with specific domain in prod
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -25,6 +25,33 @@ app.add_middleware(
 VISION_URL = os.getenv("VISION_URL", "http://vision:8001/process")
 IDENTITY_URL = os.getenv("IDENTITY_URL", "http://identity:8002/process")
 AUDIO_URL = os.getenv("AUDIO_URL", "http://audio:8003/get_features")
+
+
+#---------------------------------------------------------------------------------------------
+@app.post("/enroll")
+async def enroll_student(student_name: str = Form(...), files: list[UploadFile] = File(...)):
+    target_url = "http://identity:8002/enroll" 
+    
+    async with httpx.AsyncClient(timeout=None) as client:
+        # Prepare multipart files for forwarding
+        upload_files = []
+        for file in files:
+            content = await file.read()
+            upload_files.append(("files", (file.filename, content, file.content_type)))
+        
+        # Forward form data + files
+        response = await client.post(
+            target_url, 
+            data={"student_name": student_name}, 
+            files=upload_files
+        )
+        return response.json()
+#---------------------------------------------------------------------------------------------
+@app.post("/train")
+async def train_identity():
+    async with httpx.AsyncClient(timeout=None) as client:
+        response = await client.post("http://identity:8002/train")
+        return response.json()
 
 @app.post("/analyze")
 async def analyze_session(file: UploadFile = File(...)):

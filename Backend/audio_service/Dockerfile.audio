@@ -2,10 +2,12 @@ FROM python:3.11-slim
 
 # Install system audio dependencies
 RUN apt-get update && apt-get install -y \
+    wget \
     libasound2-dev \
     portaudio19-dev \
     libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
+
 
 WORKDIR /app
 
