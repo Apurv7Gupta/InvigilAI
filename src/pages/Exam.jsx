@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 
-// Use the environment variable for the Gateway URL
 const apiURL = import.meta.env.VITE_API_URL_GATEWAY;
 
 const QUESTIONS = [
@@ -132,7 +131,7 @@ export default function Exam() {
           }
         },
         "image/jpeg",
-        0.6
+        0.6,
       ); // Reduced quality for faster transmission
     }, 2000);
 
@@ -152,7 +151,7 @@ export default function Exam() {
 
   const score = QUESTIONS.reduce(
     (acc, q, idx) => acc + (answers[idx] === q.answer ? 1 : 0),
-    0
+    0,
   );
 
   if (!permissionsGranted) {
@@ -286,8 +285,8 @@ export default function Exam() {
                 current === idx
                   ? "bg-white text-black"
                   : answers[idx] !== undefined
-                  ? "bg-blue-600 text-white"
-                  : "bg-zinc-800 text-gray-500"
+                    ? "bg-blue-600 text-white"
+                    : "bg-zinc-800 text-gray-500"
               }`}
             >
               {idx + 1}

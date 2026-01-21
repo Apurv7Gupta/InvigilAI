@@ -62,7 +62,7 @@ function Identity() {
       0,
       0,
       cropWidth,
-      cropHeight
+      cropHeight,
     );
 
     new Audio("/beep.mp3").play();
@@ -212,10 +212,10 @@ function Identity() {
                 {count < 5
                   ? "● Face The Camera"
                   : count < 10
-                  ? "⬅ Turn LEFT"
-                  : count < 15
-                  ? "➡ Turn RIGHT"
-                  : "● ENROLLMENT READY"}
+                    ? "⬅ Turn LEFT"
+                    : count < 15
+                      ? "➡ Turn RIGHT"
+                      : "● ENROLLMENT READY"}
               </p>
             )}
           </div>
