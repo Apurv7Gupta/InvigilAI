@@ -9,14 +9,12 @@ function Home() {
 
   return (
     <div className="min-h-screen bg-black text-white selection:bg-blue-500/30 overflow-x-hidden">
-      {/* Background Glow Effect - Adjusted size for mobile */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[400px] md:h-[600px] bg-blue-600/10 blur-[80px] md:blur-[120px] rounded-full pointer-events-none" />
 
       <Navbar />
 
-      {/* HERO SECTION */}
+      {/* HERO */}
       <div className="relative max-w-6xl mx-auto px-6 md:px-8 pt-20 md:pt-32 pb-1 text-center md:text-left">
-        {/* Responsive Typography */}
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold leading-[1.1] tracking-tight bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
           Real-time AI proctoring <br className="hidden md:block" />
           <span className="text-blue-500">that shuts down cheating.</span>
@@ -27,7 +25,7 @@ function Home() {
           analyzes, and logs suspicious behavior with zero latency.
         </p>
 
-        {/* Responsive CTA Buttons */}
+        {/* CTA Buttons */}
         <div className="mt-10 md:mt-12 flex flex-col sm:flex-row gap-4 md:gap-5 justify-center md:justify-start">
           {isAuthenticated ? (
             <>

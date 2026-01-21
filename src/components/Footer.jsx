@@ -5,10 +5,9 @@ function Footer() {
     <footer className="w-full bg-black border-t border-white/5 pt-16 pb-8 px-6 md:px-16 mt-20">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-10">
-          {/* BRAND SECTION - LOGO ON TOP */}
+          {/* BRAND SECTION (LOGO ON TOP) */}
           <div className="flex flex-col items-center md:items-start space-y-6 text-center md:text-left">
             <div className="flex flex-col items-center md:items-start gap-4">
-              {/* Larger, Standout Logo */}
               <img
                 src="/logo.png"
                 alt="Invigil AI Logo"

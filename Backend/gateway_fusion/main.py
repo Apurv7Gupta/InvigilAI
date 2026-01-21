@@ -10,10 +10,9 @@ import os  # env vars
 app = FastAPI()
 fusion_model = TemporalBehaviorFusionModel()
 
-# Allow your frontend to communicate with the backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # replace with specific domain in prod
+    allow_origins=["*"], # will replace with specific domain in prod
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -60,7 +59,7 @@ async def analyze_session(file: UploadFile = File(...)):
     
     # 2. Parallel Execution: Send frame to Vision and Identity simultaneously
     async with httpx.AsyncClient(timeout=None) as client:
-        # We fire these requests in parallel to save time
+        # firing these requests in parallel to save time
         vision_task = client.post(VISION_URL, files={"file": contents})
         identity_task = client.post(IDENTITY_URL, files={"file": contents})
         audio_task = client.get(AUDIO_URL)

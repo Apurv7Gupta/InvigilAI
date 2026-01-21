@@ -3,56 +3,54 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 function Login() {
   const { loginWithRedirect, isLoading } = useAuth0();
-
   if (isLoading) return null;
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 to-black px-4">
-      <div className="w-full max-w-md rounded-2xl bg-gray-900 border border-gray-800 shadow-xl p-6 sm:p-8">
-        <h1
-          className="text-2xl sm:text-3xl font-semibold text-center text-[#5B6CFF]"
-          style={{ fontFamily: "'Expletus Sans', sans-serif" }}
-        >
-          InvigilAI
-        </h1>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-gray-900 to-black px-4">
+      <div className="relative w-full max-w-md rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl p-8">
+        <div className="text-center">
+          <h1
+            className="text-3xl font-semibold tracking-tight text-[#5B6CFF]"
+            style={{ fontFamily: "'Expletus Sans', sans-serif" }}
+          >
+            InvigilAI
+          </h1>
+          <p className="mt-2 text-sm text-gray-400">
+            Secure access to your dashboard
+          </p>
+        </div>
 
-        <p className="text-center text-gray-400 mt-2 text-sm sm:text-base">
-          Login to your account
-        </p>
-
-        {/* AUTH BUTTONS */}
         <div className="mt-8 space-y-4">
-          {/* Email / Password */}
           <button
             onClick={() => loginWithRedirect()}
-            className="w-full bg-[#5B6CFF] text-white py-3 rounded-lg font-medium hover:opacity-90 transition active:scale-[0.98]"
+            className="w-full rounded-xl bg-[#5B6CFF] py-3 text-sm font-semibold text-white
+                       shadow-lg shadow-[#5B6CFF]/30
+                       hover:brightness-110 transition
+                       active:scale-[0.97]"
           >
-            Login with Email
+            Continue with Email
           </button>
-
-          {/* Google Login */}
           <button
             onClick={() =>
               loginWithRedirect({
-                authorizationParams: {
-                  connection: "google-oauth2",
-                },
+                authorizationParams: { connection: "google-oauth2" },
               })
             }
-            className="w-full bg-gray-800 text-white py-3 rounded-lg border border-gray-700 hover:bg-gray-700 transition active:scale-[0.98]"
+            className="w-full rounded-xl border border-white/10 bg-white/5 py-3 text-sm font-medium text-gray-200
+                       hover:bg-white/10 transition
+                       active:scale-[0.97]"
           >
             Continue with Google
           </button>
         </div>
 
-        {/* Footer */}
-        <p className="text-center text-sm text-gray-400 mt-6">
-          Don’t have an account?{" "}
+        <p className="mt-8 text-center text-xs text-gray-400">
+          No account?{" "}
           <Link
             to="/signup"
-            className="text-[#5B6CFF] font-medium hover:underline"
+            className="font-medium text-[#5B6CFF] hover:underline"
           >
-            Sign Up
+            Sign up
           </Link>
         </p>
       </div>

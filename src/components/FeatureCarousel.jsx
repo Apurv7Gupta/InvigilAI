@@ -46,7 +46,6 @@ function FeatureCarousel() {
 
   return (
     <div className="relative w-full overflow-hidden py-12 md:py-24 bg-black">
-      {/* Side fades - reduced width on mobile */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-12 md:w-40 bg-gradient-to-r from-black to-transparent z-10" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-12 md:w-40 bg-gradient-to-l from-black to-transparent z-10" />
 

@@ -100,7 +100,7 @@ class IdentityProcessor:
                     if max_prob > 0.80: # Threshold for recognition
                         current_id = self.encoder.inverse_transform([np.argmax(probs)])[0]
 
-            # 2. Draw Visuals if requested (debug)
+            # 2. Draw Visuals if requested (DEBUG)
             if return_visuals:
                 color = (0, 255, 0) if current_id not in ["unknown", "missing"] else (0, 0, 255)
                 cv.rectangle(debug_frame, (x1, y1), (x2, y2), color, 2)

@@ -15,7 +15,7 @@ class TemporalBehaviorFusionModel:
         self.score_history = deque(maxlen=10)
 
     def calculate_risk(self, f: FusionFeatures) -> int:
-        # 1. Identity Risk with internal 1.0 cap (prevents overflow)
+        # 1. Identity Risk with internal 1.0 cap (preventing overflow)
         id_risk = min((1.0 - f.id_dom) + f.id_switch + f.id_unkn, 1.0)
         
         # 2. Weighted Sum (max logic and proper isolation)

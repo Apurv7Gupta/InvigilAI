@@ -21,13 +21,13 @@ async def process_vision(file: UploadFile = File(...)):
         return [0.0, 0.0, 1.0, 1.0, 1.0] # Fail-safe defaults
 
     # Get results from Vision Module [phone, multi, missing]
-    # We modify the module's return slightly for production speed
+    # modifying the module's return slightly for production speed
     vision_results = vision_p.process_frame(frame) 
     
     # Get results from Gaze Module [gaze_off, gaze_turn]
     gaze_results = gaze_p.process_frame(frame)
 
-    # Return the exact 5-value list the Gateway expects
+    # Returning the exact 5-value list the Gateway expects
     # Order: phone, multi, missing, gaze_off, gaze_turn
     return vision_results + gaze_results
 

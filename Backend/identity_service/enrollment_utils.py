@@ -77,7 +77,7 @@ class EnrollmentManager:
                 results = self.detector(img, verbose=False, save=False, save_txt=False,
     save_conf=False, project=None)
                 
-                # 🔥 cleanup YOLO junk
+                #  cleanup YOLO junk
                 runs_path = Path.cwd() / "runs"
                 if runs_path.exists():
                     import shutil
@@ -113,7 +113,7 @@ class EnrollmentManager:
         encoder = LabelEncoder()
         Y_encoded = encoder.fit_transform(Y_all)
 
-        # Use probability=True so we can use thresholds during the exam
+        # probability=True to use thresholds during the exam
         svm_model = SVC(kernel="linear", probability=True)
         svm_model.fit(X_all, Y_encoded)
 
@@ -126,7 +126,7 @@ class EnrollmentManager:
         print("Registration Complete. Models saved to data/")
 
 
-# --- Usage Example ---
+
 if __name__ == "__main__":
     manager = EnrollmentManager()
     manager.sync_and_train()
