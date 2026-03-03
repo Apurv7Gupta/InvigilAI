@@ -35,6 +35,12 @@ Real-time detection of suspicious activity during the exam. Our models constantl
 
 ---
 
+![Detection in Action](./Architecture.png)
+
+System Architecture
+
+---
+
 ## 🛠 Tech Stack
 
 - React
